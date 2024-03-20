@@ -24,14 +24,33 @@ def input_number(step):
             continue
 
         break    
-    return number
+    return float(number)
 
 def main():
     info()
     number_one = input_number('1st')
     number_two = input_number('2nd')    
     operation = input_operation()
-    print (f'{number_one} {operation} {number_two} = результат')
+    result = solve(number_one, number_two, operation)
+    print_solve(number_one, number_two, operation, result)
+
+def print_solve(number_one, number_two, operation, result):
+    print (f'{number_one} {operation} {number_two} = {result}')
+
+
+def solve(number_one, number_two, operation):
+    result = None
+    if operation == '+':
+        result = number_one + number_two
+    elif operation == '-':
+        result = number_one - number_two
+    elif operation == '*':
+        result = number_one * number_two
+    else:
+        result = number_one / number_two
+    return result
 
 if __name__ == '__main__':
     main()
+
+
